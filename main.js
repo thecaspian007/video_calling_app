@@ -70,7 +70,6 @@ socket.on('ready', () => {
         rtcPeerConnection.addTrack(localStream.getTracks()[1], localStream)
         rtcPeerConnection.createOffer()
         .then(sessionDescription => {
-            // console.log('sending offer', sessionDescription)
             rtcPeerConnection.setLocalDescription(sessionDescription)
             socket.emit('offer', {
                 type: 'offer',
@@ -92,11 +91,9 @@ socket.on('offer', (event) => {
         rtcPeerConnection.ontrack = onAddStream
         rtcPeerConnection.addTrack(localStream.getTracks()[0], localStream)
         rtcPeerConnection.addTrack(localStream.getTracks()[1], localStream)
-        // console.log('recieved offer', event)
         rtcPeerConnection.setRemoteDescription(new RTCSessionDescription(event))
         rtcPeerConnection.createAnswer()
             .then(sessionDescription => {
-                // console.log('sending answer', sessionDescription)
                 rtcPeerConnection.setLocalDescription(sessionDescription)
                 socket.emit('answer', {
                     type: 'answer',
@@ -111,7 +108,6 @@ socket.on('offer', (event) => {
 })
 
 socket.on('answer', event => {
-    // console.log('recieved answer', event)
     rtcPeerConnection.setRemoteDescription(new RTCSessionDescription(event))
 })
 
@@ -120,7 +116,6 @@ socket.on('candidate', event => {
         sdpMLineIndex: event.label,
         candidate: event.candidate
     })
-    // console.log('recieved candidate', candidate)
     rtcPeerConnection.addIceCandidate(candidate)
 })
 
