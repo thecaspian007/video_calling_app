@@ -1,0 +1,132 @@
+.selectRoomCss {
+    text-align: center;
+    margin-top: 70px;
+  }
+  
+.roomNumberCss {
+    width: 300px; /* Adjust the width as needed */
+    padding: 10px; /* Adjust the padding as needed */
+    margin: 10px; /* Adjust the margin as needed */
+  }
+  
+.goRoomCss {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Adjust padding to increase button size */
+    cursor: pointer;
+  }
+  
+.goRoomCss:hover {
+    background-color: darkgreen; /* Change color on hover if desired */
+  }
+
+.consultingRoomCss {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100vh; /* Full height of the viewport */
+    width: 100vw; /* Full width of the viewport */
+  }
+  
+.localVideoCss {
+    width: 100%; /* Take up full width */
+    height: 100%; /* Take up full height */
+  }
+  
+.remoteVideoCss {
+    position: absolute;
+    bottom: 0px; /* Adjust the distance from the bottom as needed */
+    right: 20px; /* Adjust the distance from the right as needed */
+    width: 300px; /* Adjust the width of the remote video */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ccc; /* Add border for visibility */
+    border-radius: 5px; /* Optional: Add border radius for aesthetics */
+    background-color: #fff; /* Optional: Add background color for aesthetics */
+  }
+
+.webRTCHeaderCss {
+    text-align: center; /* Align text in the center */
+    color: green; /* Change text color to green */
+    margin-top: 50px;
+  }
+
+.roomLabelCss {
+    font-size: 20px; /* Change the font size to 20 pixels */
+  }
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure full viewport height */
+    margin: 0; /* Remove default margin */
+  }
+  
+.containerCss {
+    text-align: center;
+  }
+
+.interactiveAreaCSS {
+    width: 80%; /* Adjust the width of the interactive area */
+    height: 300px; /* Adjust the height of the interactive area */
+    background: linear-gradient(to right, #4CAF50, #2196F3); /* Gradient background */
+    border-radius: 10px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Example hover effect */
+.interactiveAreaCss:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+  }
+
+  
+.shape {
+    width: 50px;
+    height: 50px;
+    background-color: #FFC107;
+    border-radius: 50%;
+    animation: rotate 2s linear infinite; /* Rotate animation */
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.chatboxCss {
+    position: fixed;
+    bottom: 20px; /* Adjust the distance from the bottom as needed */
+    left: 20px; /* Adjust the distance from the left as needed */
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: max-height 0.3s ease-in-out; /* Add smooth transition */
+}
+
+.chatbox.collapsed {
+    max-height: 0; /* Initially collapsed */
+    overflow: hidden;
+}
+
+.chatlogCss {
+    max-height: 200px; /* Adjust as needed */
+    overflow-y: auto;
+}
+
+.userInputCss {
+    width: calc(100% - 70px); /* Adjust for button width */
+    margin-right: 10px;
+}
+
+.buttonCss {
+    width: 60px;
+}

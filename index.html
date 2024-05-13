@@ -1,0 +1,72 @@
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
+<head>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="app.css">
+    <title> WebRTC APP </title>
+  </head>  
+  
+  <body> 
+    <div id="container" class="containerCss">
+    <h1 class="webRTCHeaderCss">WebRTC Simulation </h1>
+    <div id="selectRoom" class="selectRoomCss"> 
+      <label class="roomLabelCss">Type Room Name </label>
+      <input id="roomNumber" type="text" class="roomNumberCss"> 
+      <button id="goRoom" class="goRoomCss"> Connect </button>
+    </div>
+    </div>
+
+    <!-- <div id="interactiveArea" class="interactiveAreaCSS">
+    <div class="shape"></div>
+    </div> -->
+  
+    <div id="consultingRoom" style= "display:none" class="consultingRoomCss">
+      <video class="localVideoCss" id="localVideo" autoplay> </video>
+      <video class="remoteVideoCss" id="remoteVideo" autoplay> </video>
+    </div>
+
+  </body>
+
+  <head>
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>WebRTC Chatbot</title>
+</head>
+<body>
+    <div id="chatbox" class="chatboxCss">
+        <div id="chatlog" class="chatlogCss"></div>
+        <input type="text" id="userInput" class="userInputCss" placeholder="Type your message...">
+        <button id="toggleChat">Toggle Chat</button>
+        <button onclick="sendMessage()" class="goRoomCss">Send</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const chatlog = document.getElementById('chatlog');
+            
+            // Display user message in the chatlog
+            chatlog.innerHTML += `<div>You: ${userInput}</div>`;
+            
+            // Send user message to Dialogflow API
+            const response = await fetch('/api/dialogflow', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: userInput })
+            });
+            
+            const data = await response.json();
+            
+            // Display bot response in the chatlog
+            chatlog.innerHTML += `<div>Bot: ${data.message}</div>`;
+        }
+    </script>
+</body>
+  <script src="/socket.io/socket.io.js"> </script>
+  <script src="main.js"> </script>
+  <!-- <script>
+    var socket = io();
+  </script> -->
+  
